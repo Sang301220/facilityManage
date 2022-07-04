@@ -1,13 +1,26 @@
 -- +migrate Down
 -- SQL in section 'Up' is executed when this migration is applied
 
-DROP TABLE IF EXISTS notices;
-DROP TABLE IF EXISTS sessions;
-DROP TABLE IF EXISTS noticeStatus;
-DROP TABLE IF EXISTS requests;
-DROP TABLE IF EXISTS requestStatus;
-DROP TABLE IF EXISTS devices;
-DROP TABLE IF EXISTS statusDevices;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS categories;
+DROP TABLE facilityManage.categories;
+
+DROP TABLE facilityManage.devices;
+
+DROP TABLE facilityManage.gorp_migrations;
+
+DROP TABLE facilityManage.noticeStatus;
+
+DROP TABLE facilityManage.notices;
+
+DROP TABLE facilityManage.requestStatus;
+
+DROP TABLE facilityManage.requests;
+
+DROP TABLE facilityManage.roles;
+
+DROP TABLE facilityManage.schema_migrations;
+
+DROP TABLE facilityManage.sessions;
+
+DROP TABLE facilityManage.statusDevices;
+
+DROP TABLE facilityManage.users;

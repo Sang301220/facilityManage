@@ -26,6 +26,11 @@ var (
 	roleController controller.RoleController = controller.NewRoleController(roleService)
 )
 
+// @title FacilityManage Application
+// @description This is a facility management application
+// @version 1.0
+// @host localhost:8081
+// @BasePath /api/auth
 func main() {
 	defer util.CloseDatabaseConnection(db)
 
@@ -37,13 +42,13 @@ func main() {
 		authRoutes.POST("/register", authController.Register)
 	}
 
-	userRoutes := router.Group("api/user", middleware.AuthorizeJWT(jwtService))
+	userRoutes := router.Group("api/auth", middleware.AuthorizeJWT(jwtService))
 	{
 		userRoutes.GET("/profile", userController.Profile)
 		// userRoutes.PUT("/profile", userController.Update)
 	}
 
-	roleRoutes := router.Group("api/auth")
+	roleRoutes := router.Group("api/auth", middleware.AuthorizeJWT(jwtService))
 	{
 		roleRoutes.GET("/getUsers", roleController.All)
 	}
